@@ -6,7 +6,7 @@ on:
       video_url:
         description: 'Dailymotion Video URL'
         required: true
-        default: 'YOUR_DAILYMOTION_VIDEO_URL_HERE'
+        default: 'https://www.dailymotion.com/video/x8fedqt'
 
 jobs:
   run-dubbing:
@@ -36,3 +36,9 @@ jobs:
           VIDEO_URL: ${{ github.event.inputs.video_url }}
         run: |
           python main.py
+
+      - name: Upload Dubbed Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-dubbed-video
+          path: final_dubbed_video.mp4
