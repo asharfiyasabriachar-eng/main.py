@@ -23,3 +23,9 @@ jobs:
       - name: Run Dubbing Script
         run: |
           python main.py
+
+      - name: Upload Output Video
+        uses: actions/upload-artifact@v4
+        with:
+          name: dubbed-video
+          path: input_video.mp4
